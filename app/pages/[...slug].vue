@@ -165,7 +165,7 @@ useHead({
 .wiki-body :deep(p) { margin-bottom: 1.5rem; }
 .wiki-body :deep(strong) { color: #fff; background: linear-gradient(to top, rgba(142, 155, 255, 0.3) 50%, transparent 50%); } /* 형광펜 효과 */
 .wiki-body :deep(a) { color: #8194ff; text-decoration: none; font-weight: 500; }
-.wiki-body :deep(a:hover) { text-decoration: underline; color: #fff; }
+.wiki-body :deep(a:hover) { color: #acb9ff; }
 .wiki-body :deep(ul), .wiki-body :deep(ol) { margin-bottom: 1.5rem; padding-left: 1.5rem; }
 .wiki-body :deep(li) { margin-bottom: 0.5rem; }
 .wiki-body :deep(table) {width: 100%; background-color: #ffffff22; border-radius: 10px; }
@@ -175,7 +175,7 @@ useHead({
   background: rgba(255,255,255,0.05); 
   border-left: 4px solid #96a6ff; 
   margin: 2rem 0; 
-  padding: 1rem 1.5rem; 
+  padding: 0.5rem 1.5rem; 
   font-style: italic; 
   color: #ccc;
 }
