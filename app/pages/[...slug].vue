@@ -1,11 +1,7 @@
 <template>
   <div class="wiki-page">
     
-    <div v-if="pending" class="loading-screen">
-      <span>Loading...</span>
-    </div>
-
-    <template v-else-if="data">
+    <template v-if="data">
       <div 
         class="full-background" 
         :style="{ backgroundImage: `url(${data.image || '/images/default-bg.jpg'})` }"
@@ -22,7 +18,8 @@
           </div>
           
           <div class="scroll-indicator">
-            <span>↓</span>
+            <span>↓
+            </span>
           </div>
         </header>
 
@@ -50,12 +47,15 @@
 </template>
 
 <script setup>
+import E from '~/components/E.vue'
 // Nuxt 3 Composition API 방식
 const route = useRoute()
 
 const { data } = await useAsyncData(route.path, () => {
   return queryCollection('docs').path(route.path).first()
 })
+
+console.log(data.value)
 
 // 페이지 메타 태그 설정 (SEO)
 useHead({
@@ -159,17 +159,20 @@ useHead({
 }
 
 /* 마크다운 내부 스타일 (:deep 필수) */
-.wiki-body :deep(h1) { font-size: 2.2rem; border-bottom: 2px solid #555; padding-bottom: 0.5rem; margin-top: 3rem; color: #fff; }
-.wiki-body :deep(h2) { font-size: 1.8rem; margin-top: 2.5rem; color: #f0f0ff; border-left: 5px solid #a48eff; padding-left: 10px; }
+.wiki-body :deep(h1) { font-size: 2.2rem; border-bottom: 2px solid #555; padding-bottom: 0.5rem; margin-top: 1rem; color: #fff; }
+.wiki-body :deep(h2) { font-size: 1.8rem; border-bottom: 2px solid #555; margin-top: 2.5rem; color: #fff; }
+.wiki-body :deep(h3) { font-size: 1.5rem; border-bottom: 2px solid #555; margin-top: 2rem; color: #fff; }
+.wiki-body :deep(h2 a) { color: #fff; }
+.wiki-body :deep(h3 a) { color: #fff; }
 .wiki-body :deep(p) { margin-bottom: 1.5rem; }
-.wiki-body :deep(strong) { color: #fff; background: linear-gradient(to top, rgba(164,142,255,0.3) 50%, transparent 50%); } /* 형광펜 효과 */
-.wiki-body :deep(a) { color: #bb99ff; text-decoration: none; font-weight: bold; }
+.wiki-body :deep(strong) { color: #fff; background: linear-gradient(to top, rgba(142, 155, 255, 0.3) 50%, transparent 50%); } /* 형광펜 효과 */
+.wiki-body :deep(a) { color: #8194ff; text-decoration: none; font-weight: 500; }
 .wiki-body :deep(a:hover) { text-decoration: underline; color: #fff; }
 .wiki-body :deep(ul), .wiki-body :deep(ol) { margin-bottom: 1.5rem; padding-left: 1.5rem; }
 .wiki-body :deep(li) { margin-bottom: 0.5rem; }
 .wiki-body :deep(blockquote) { 
   background: rgba(255,255,255,0.05); 
-  border-left: 4px solid #bb99ff; 
+  border-left: 4px solid #96a6ff; 
   margin: 2rem 0; 
   padding: 1rem 1.5rem; 
   font-style: italic; 

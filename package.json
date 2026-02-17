@@ -8,12 +8,13 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "deploy": "npm run generate && npx gh-pages -d .output/public --dotfiles"
-
   },
   "dependencies": {
     "@nuxt/content": "^3.11.2",
+    "@nuxt/image": "^2.0.0",
     "better-sqlite3": "^12.6.2",
     "gh-pages": "^6.3.0",
-    "nuxt": "^4.3.1"
+    "nuxt": "^4.3.1",
+    "unist-util-visit": "^5.1.0"
   }
 }

@@ -1,8 +1,7 @@
+import remarkCustomEmoji from './utils/remark-emoji' // 방금 만든 파일 import
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/content',
-  ],
+  modules: ['@nuxt/content', '@nuxt/image'],
   devtools: { enabled: true },
   compatibilityDate: '2024-04-03',
   app: {
@@ -10,8 +9,16 @@ export default defineNuxtConfig({
     baseURL: '/' 
   },
   content: {
-    // 이 설정이 켜져 있으면 우리가 만든 pages/[...slug].vue 와 충돌합니다.
-    // 반드시 false로 꺼주세요!
+    build: {
+      markdown: {
+        // remarkPlugins에 커스텀 플러그인 추가
+        remarkPlugins: {
+          'remark-emoji': {
+            instance: remarkCustomEmoji,
+          }
+        }
+      }
+    },
     documentDriven: false
   },
 })
