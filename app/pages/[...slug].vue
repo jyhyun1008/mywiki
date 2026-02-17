@@ -55,8 +55,6 @@ const { data } = await useAsyncData(route.path, () => {
   return queryCollection('docs').path(route.path).first()
 })
 
-console.log(data.value)
-
 // 페이지 메타 태그 설정 (SEO)
 useHead({
   title: data.value?.title || 'Yeonina Wiki',
@@ -170,6 +168,9 @@ useHead({
 .wiki-body :deep(a:hover) { text-decoration: underline; color: #fff; }
 .wiki-body :deep(ul), .wiki-body :deep(ol) { margin-bottom: 1.5rem; padding-left: 1.5rem; }
 .wiki-body :deep(li) { margin-bottom: 0.5rem; }
+.wiki-body :deep(table) {width: 100%; background-color: #ffffff22; border-radius: 10px; }
+.wiki-body :deep(th) {color: #8194ff;}
+.wiki-body :deep(td) {text-align: center; border-top: 2px solid #555;}
 .wiki-body :deep(blockquote) { 
   background: rgba(255,255,255,0.05); 
   border-left: 4px solid #96a6ff; 

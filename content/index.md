@@ -18,5 +18,6 @@ image: "https://images.pexels.com/photos/8512602/pexels-photo-8512602.jpeg"
 
 - [음악 관련 자료](/music)
   - [화성학](/harmonics)
-
-### 3차 제목
+  - [지금듣는노래](/nowplay)
+- 위키 관련 자료
+  - [이모지 목록](/emojilist)
